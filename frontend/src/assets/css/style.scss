@@ -136,3 +136,37 @@ header{
   color: #20c997;
   transform: translateY(-2px);
 }
+
+.hero-section {
+    min-height: 90vh;
+     background-color: #f2f2f2; /* Your desired color */
+    padding: 60px 0;
+}
+
+.hero-title {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    max-height: 500px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.nav-link-custom {
+    font-weight: 500;
+}
+
+.icon-hover:hover {
+    color: #000;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
