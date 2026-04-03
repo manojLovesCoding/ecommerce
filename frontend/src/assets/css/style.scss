@@ -170,3 +170,20 @@ header{
     transform: scale(1.1);
     transition: 0.3s;
 }
+
+.footer-section {
+  background-color: #2f4858;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.footer-section ul li:hover {
+  text-decoration: underline;
+}
+
+.footer-section i {
+  font-size: 18px;
+}
