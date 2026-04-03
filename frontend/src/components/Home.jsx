@@ -1,7 +1,7 @@
-import LatestProducts from './LatestProducts';
-import FearturedProducts from './FearturedProducts';
-import Hero from './Hero';
-import Layout from './Layout';
+import LatestProducts from './common/LatestProducts';
+import FearturedProducts from './common/FearturedProducts';
+import Hero from './common/Hero';
+import Layout from './common/Layout';
 
 const Home = () => {
     return (

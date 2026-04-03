@@ -1,13 +1,17 @@
-import Layout from './Layout';
+import Layout from './common/Layout';
 import { Card, Form, Container, Row, Col, Breadcrumb } from 'react-bootstrap';
-import product1 from '../../assets/images/Mens/two.jpg';
-import product2 from '../../assets/images/Mens/three.jpg';
-import product3 from '../../assets/images/Mens/four.jpg';
-import product4 from '../../assets/images/Mens/five.jpg';
-import product5 from '../../assets/images/Mens/six.jpg';
-import product6 from '../../assets/images/Mens/seven.jpg';
+import { useNavigate } from 'react-router-dom';
+
+import product1 from '../assets/images/Mens/two.jpg';
+import product2 from '../assets/images/Mens/three.jpg';
+import product3 from '../assets/images/Mens/four.jpg';
+import product4 from '../assets/images/Mens/five.jpg';
+import product5 from '../assets/images/Mens/six.jpg';
+import product6 from '../assets/images/Mens/seven.jpg';
 
 const Shop = () => {
+  const navigate = useNavigate();
+
   const categories = ['Kids', 'Mens', 'Kids'];
   const brands = ['Puma', 'Killer', 'Levis', 'Flying Machine'];
 
@@ -25,14 +29,14 @@ const Shop = () => {
       <Container>
         <nav aria-label="breadcrumb" className="py-4">
           <Breadcrumb>
-            <Breadcrumb.Item href="#">Home</Breadcrumb.Item>
+            <Breadcrumb.Item href="/">Home</Breadcrumb.Item>
             <Breadcrumb.Item active>Shop</Breadcrumb.Item>
           </Breadcrumb>
         </nav>
 
         <Row>
+          {/* Sidebar */}
           <Col md={3} className="pb-4">
-            {/* Categories Card */}
             <Card className="mb-4 shadow-sm">
               <Card.Body>
                 <Card.Title>Categories</Card.Title>
@@ -48,7 +52,6 @@ const Shop = () => {
               </Card.Body>
             </Card>
 
-            {/* Brands Card */}
             <Card className="shadow-sm">
               <Card.Body>
                 <Card.Title>Brands</Card.Title>
@@ -65,17 +68,33 @@ const Shop = () => {
             </Card>
           </Col>
 
+          {/* Products */}
           <Col md={9}>
-            {/* Latest Products Section */}
             <section className="py-4">
               <h4 className="mb-4">Latest Products</h4>
               <Row>
                 {products.map((product) => (
                   <Col key={product.id} lg={4} md={6} sm={12} className="mb-4">
                     <Card className="shadow-sm h-100">
-                      <Card.Img variant="top" src={product.img} />
+
+                      {/* Clickable Image */}
+                      <Card.Img
+                        variant="top"
+                        src={product.img}
+                        style={{ cursor: "pointer" }}
+                        onClick={() => navigate("/product", { state: product })}
+                      />
+
                       <Card.Body>
-                        <Card.Title className="h6">{product.title}</Card.Title>
+                        {/* Clickable Title */}
+                        <Card.Title
+                          className="h6"
+                          style={{ cursor: "pointer" }}
+                          onClick={() => navigate("/product", { state: product })}
+                        >
+                          {product.title}
+                        </Card.Title>
+
                         <div className="d-flex gap-2 align-items-center">
                           <span className="fw-bold">{product.price}</span>
                           <small className="text-muted text-decoration-line-through">
@@ -83,6 +102,7 @@ const Shop = () => {
                           </small>
                         </div>
                       </Card.Body>
+
                     </Card>
                   </Col>
                 ))}
