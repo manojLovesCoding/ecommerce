@@ -1,18 +1,16 @@
 import LatestProducts from './LatestProducts';
 import FearturedProducts from './FearturedProducts';
-import Header from './Header';
-import Footer from './Footer';
 import Hero from './Hero';
+import Layout from './Layout';
 
 const Home = () => {
     return (
         <>
-            <Header/>
-            <Hero/>
-            <LatestProducts />
-            <FearturedProducts />
-
-            <Footer />
+            <Layout>
+                <Hero />
+                <LatestProducts />
+                <FearturedProducts />
+            </Layout>
         </>
     );
 };
