@@ -14,7 +14,7 @@ const Header = () => {
                     <Container>
 
                         {/* Logo */}
-                        <Navbar.Brand href="#" className="d-flex align-items-center">
+                        <Navbar.Brand href="/" className="d-flex align-items-center">
                             <img
                                 src={logo}
                                 alt="Pure Wear"
