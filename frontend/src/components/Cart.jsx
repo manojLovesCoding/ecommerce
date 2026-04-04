@@ -28,7 +28,7 @@ const Cart = () => {
                                         <div className="d-flex align-center pt-3">
                                             <span>$10</span>
                                             <div className='ps-3'>
-                                                <button className='btn btn-size'>$</button>
+                                                <button className='btn btn-size'>S</button>
                                             </div>
                                         </div>
                                     </td>
@@ -50,7 +50,7 @@ const Cart = () => {
                                         <div className="d-flex align-center pt-3">
                                             <span>$10</span>
                                             <div className='ps-3'>
-                                                <button className='btn btn-size'>$</button>
+                                                <button className='btn btn-size'>S</button>
                                             </div>
                                         </div>
                                     </td>
