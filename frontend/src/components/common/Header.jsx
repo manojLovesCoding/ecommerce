@@ -46,7 +46,7 @@ const Header = () => {
                                     </svg>
                                 </Nav.Link>
 
-                                <Nav.Link href="#" className="icon-hover position-relative">
+                                <Nav.Link href="/cart" className="icon-hover position-relative">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
                                         width="22"
