@@ -4,6 +4,9 @@ import Shop from './components/Shop'
 import Product from './components/Product'
 import Cart from './components/Cart'
 import CheckOut from './components/CheckOut'
+import Login from './components/admin/Login'
+import { ToastContainer } from 'react-toastify'
+import Dashboard from './components/admin/Dashboard'
 
 function App() {
   return (
@@ -15,8 +18,12 @@ function App() {
           <Route path='/product' element={<Product/>} />
           <Route path='/cart' element={<Cart/>} />
           <Route path='/checkout' element={<CheckOut/>} />
+
+          <Route path='/admin/login' element={<Login/>} />
+          <Route path='/admin/dashboard' element={<Dashboard/>} />
         </Routes>
       </BrowserRouter>
+      <ToastContainer/>
     </>
   )
 }
