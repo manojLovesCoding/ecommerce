@@ -1,0 +1,47 @@
+//admin
+
+post : http://localhost:8000/api/admin/login
+json : {
+  "email": "admin@example.com",
+  "password": "password"
+}
+
+//categories
+
+get : http://localhost:8000/api/categories
+Headers : Accept=application/json
+Bearer : Bearer Token =  29|JAPCmE0hVGSvRizLWWIQSyPnz7xHnU9UPa4Owy74af4aab54
+
+post : http://localhost:8000/api/categories
+Headers : Accept=application/json
+Bearer : Bearer Token =  29|JAPCmE0hVGSvRizLWWIQSyPnz7xHnU9UPa4Owy74af4aab54
+json : {
+  "name": "Mens",
+  "status" : 1
+}
+
+get : http://localhost:8000/api/categories/1
+Headers : Accept=application/json
+Bearer : Bearer Token =  29|JAPCmE0hVGSvRizLWWIQSyPnz7xHnU9UPa4Owy74af4aab54
+
+put : http://localhost:8000/api/categories/1
+Headers : Accept=application/json
+Bearer : Bearer Token =  29|JAPCmE0hVGSvRizLWWIQSyPnz7xHnU9UPa4Owy74af4aab54
+json : {
+  "name": "Womens"
+}
+
+delete : http://localhost:8000/api/categories/1
+Headers : Accept=application/json
+Bearer : Bearer Token =  29|JAPCmE0hVGSvRizLWWIQSyPnz7xHnU9UPa4Owy74af4aab54
+
+
+
+
+
+
+
+
+
+
+note : php artisan route:list   :  is used in the Laravel framework to display all the routes defined in your application.
