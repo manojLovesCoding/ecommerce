@@ -63,11 +63,91 @@ class ProductController extends Controller
     }
 
     //this will return a single product
-    public function show() {}
+    public function show($id)
+    {
+        $product = Product::find($id);
 
-    //this methos will update a product
-    public function update() {}
+        if (!$product) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Product not found'
+            ], 404);
+        }
+
+        return response()->json([
+            'status' => 200,
+            'data' => $product
+        ], 200);
+    }
+
+    //this method will update a product
+    public function update(Request $request, $id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Product not found'
+            ], 404);
+        }
+
+        // validate the request
+        $validator = Validator::make($request->all(), [
+            'title' => "required",
+            'price' => "required|numeric",
+            'category' => "required|integer",
+            'sku' => "required|unique:products,sku," . $id,
+            'is_featured' => 'required',
+            'status' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'error' => $validator->errors()
+            ], 400);
+        }
+
+        // update product
+        $product->title = $request->title;
+        $product->price = $request->price;
+        $product->compare_price = $request->compare_price;
+        $product->category_id = $request->category;
+        $product->brand_id = $request->brand;
+        $product->sku = $request->sku;
+        $product->qty = $request->qty;
+        $product->description = $request->description;
+        $product->short_description = $request->short_description;
+        $product->status = $request->status;
+        $product->is_featured = $request->is_featured;
+        $product->barcode = $request->barcode;
+        $product->save();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Product has been updated successfully',
+            'data' => $product
+        ], 200);
+    }
 
     //this will delete a product
-    public function destroy() {}
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+
+        if (!$product) {
+            return response()->json([
+                'status' => 404,
+                'message' => 'Product not found'
+            ], 404);
+        }
+
+        $product->delete();
+
+        return response()->json([
+            'status' => 200,
+            'message' => 'Product deleted successfully'
+        ], 200);
+    }
 }
