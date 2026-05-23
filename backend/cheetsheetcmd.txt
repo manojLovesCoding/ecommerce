@@ -37,3 +37,40 @@ to create the table in the database
 
 
 php artisan route:list   :  is used in the Laravel framework to display all the routes defined in your application.
+
+
+
+
+
+
+
+
+
+
+
+
+
+If your admin user already exists and you only want to change the password, use:
+
+php artisan tinker
+Now type these commands one by one inside Tinker:
+
+use Illuminate\Support\Facades\Hash;
+$user = App\Models\User::where('email', 'admin@example.com')->first();
+
+Check if user exists:
+$user
+
+If you see the user details, set a new password:
+$user->password = Hash::make('admin123');
+
+Save it:
+$user->save();
+
+If it returns:
+true
+he password was updated successfully.
+
+Then login with:
+Email: admin@example.com
+Password: admin123
